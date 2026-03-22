@@ -1,0 +1,1008 @@
+INFO:waitress:Serving on http://127.0.0.1:5000
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST edgedriver version for Edge 130.0.2849
+INFO:WDM:Get LATEST edgedriver version for Edge 130.0.2849
+INFO:WDM:Driver [C:\Windows\system32\config\systemprofile\.wdm\drivers\edgedriver\win64\130.0.2849.56\msedgedriver.exe] found in cache
+ERROR:app:Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 115, in index
+    if login_if_needed(username, password):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 37, in login_if_needed
+    driver = get_driver()
+             ^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 32, in get_driver
+    driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6FBF9DC75+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF6FC2483C4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF6FC1876A6+1460486]
+	(No symbol) [0x00007FF6FBD876A9]
+	(No symbol) [0x00007FF6FBD8211A]
+	(No symbol) [0x00007FF6FBDC0E95]
+	(No symbol) [0x00007FF6FBDB8163]
+	(No symbol) [0x00007FF6FBD8FB54]
+	(No symbol) [0x00007FF6FBD8F000]
+	(No symbol) [0x00007FF6FBD8F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF6FC11CDB4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF6FBEB9A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF6FC11BDB3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF6FC11BA19+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF6FBF3E031+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF6FBF3A954+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF6FBF3AA99+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF6FBF32296+346374]
+	BaseThreadInitThunk [0x00007FFA1CEF7374+20]
+	RtlUserThreadStart [0x00007FFA1E93CC91+33]
+
+INFO:waitress:Serving on http://127.0.0.1:5000
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST edgedriver version for Edge 130.0.2849
+INFO:WDM:Get LATEST edgedriver version for Edge 130.0.2849
+INFO:WDM:Driver [C:\Windows\system32\config\systemprofile\.wdm\drivers\edgedriver\win64\130.0.2849.56\msedgedriver.exe] found in cache
+ERROR:app:Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 110, in index
+    if login_if_needed(username, password):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 32, in login_if_needed
+    driver = get_driver()
+             ^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 27, in get_driver
+    driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()), options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6FBF9DC75+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF6FC2483C4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF6FC1876A6+1460486]
+	(No symbol) [0x00007FF6FBD876A9]
+	(No symbol) [0x00007FF6FBD8211A]
+	(No symbol) [0x00007FF6FBDC0E95]
+	(No symbol) [0x00007FF6FBDB8163]
+	(No symbol) [0x00007FF6FBD8FB54]
+	(No symbol) [0x00007FF6FBD8F000]
+	(No symbol) [0x00007FF6FBD8F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF6FC11CDB4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF6FBEB9A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF6FC11BDB3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF6FC11BA19+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF6FBF3E031+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF6FBF3A954+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF6FBF3AA99+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF6FBF32296+346374]
+	BaseThreadInitThunk [0x00007FFA1CEF7374+20]
+	RtlUserThreadStart [0x00007FFA1E93CC91+33]
+
+INFO:waitress:Serving on http://127.0.0.1:5000
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:There is no [win64] geckodriver "v0.35.0" for browser firefox "132.0" in cache
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Getting latest mozilla release info for v0.35.0
+INFO:WDM:About to download new driver from https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-win64.zip
+INFO:WDM:Driver downloading response is 200
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Driver has been saved in cache [C:\Windows\system32\config\systemprofile\.wdm\drivers\geckodriver\win64\v0.35.0]
+INFO:waitress:Serving on http://10.3.0.14:5000
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Driver [C:\Windows\system32\config\systemprofile\.wdm\drivers\geckodriver\win64\v0.35.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Driver [C:\Windows\system32\config\systemprofile\.wdm\drivers\geckodriver\win64\v0.35.0\geckodriver.exe] found in cache
+INFO:root:
+INFO:root:
+INFO:waitress:Serving on http://10.3.0.14:5000
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Driver [C:\Windows\system32\config\systemprofile\.wdm\drivers\geckodriver\win64\v0.35.0\geckodriver.exe] found in cache
+INFO:root:
+INFO:waitress:Serving on http://10.3.0.14:5000
+INFO:waitress:Serving on http://10.3.0.14:5000
+INFO:waitress:Serving on http://0.0.0.0:5000
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Driver [C:\Windows\system32\config\systemprofile\.wdm\drivers\geckodriver\win64\v0.35.0\geckodriver.exe] found in cache
+INFO:waitress:Serving on http://0.0.0.0:5000
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST chromedriver version for google-chrome
+INFO:waitress:Serving on http://0.0.0.0:5000
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Driver [C:\Windows\system32\config\systemprofile\.wdm\drivers\geckodriver\win64\v0.35.0\geckodriver.exe] found in cache
+INFO:root:
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Driver [C:\Windows\system32\config\systemprofile\.wdm\drivers\geckodriver\win64\v0.35.0\geckodriver.exe] found in cache
+INFO:waitress:Serving on http://0.0.0.0:5000
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Driver [C:\Windows\system32\config\systemprofile\.wdm\drivers\geckodriver\win64\v0.35.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Driver [C:\Windows\system32\config\systemprofile\.wdm\drivers\geckodriver\win64\v0.35.0\geckodriver.exe] found in cache
+INFO:waitress:Serving on http://0.0.0.0:5000
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Driver [C:\Windows\system32\config\systemprofile\.wdm\drivers\geckodriver\win64\v0.35.0\geckodriver.exe] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Getting latest mozilla release info for v0.35.0
+INFO:WDM:About to download new driver from https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-win64.zip
+INFO:WDM:Driver downloading response is 200
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Driver has been saved in cache [C:\Windows\system32\config\systemprofile\.wdm\drivers\geckodriver\win64\v0.35.0]
+INFO:root:Login não bem-sucedido dentro do tempo limite.
+INFO:waitress:Serving on http://0.0.0.0:5000
+ERROR:app:Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 3967, in get_local_driver
+    driver = Edge(service=service, options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C8D9DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C90483B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F87696+1460486]
+	(No symbol) [0x00007FF7C8B876A9]
+	(No symbol) [0x00007FF7C8B8211A]
+	(No symbol) [0x00007FF7C8BC0E95]
+	(No symbol) [0x00007FF7C8BB8163]
+	(No symbol) [0x00007FF7C8B8FB54]
+	(No symbol) [0x00007FF7C8B8F000]
+	(No symbol) [0x00007FF7C8B8F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1CDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF7C8CB9A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3E021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3A944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3AA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D32286+346374]
+	BaseThreadInitThunk [0x00007FFA1CEF7374+20]
+	RtlUserThreadStart [0x00007FFA1E93CC91+33]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 77, in index
+    if login_if_needed(username, password):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 19, in login_if_needed
+    driver = get_driver()
+             ^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 14, in get_driver
+    driver = Driver(browser="edge", headless=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\plugins\driver_manager.py", line 793, in Driver
+    driver = browser_launcher.get_driver(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 2699, in get_driver
+    return get_local_driver(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 3996, in get_local_driver
+    driver = Edge(service=service, options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (chrome not reachable)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C8D9DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C90483B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F87696+1460486]
+	(No symbol) [0x00007FF7C8B876A9]
+	(No symbol) [0x00007FF7C8B8211A]
+	(No symbol) [0x00007FF7C8BC0E95]
+	(No symbol) [0x00007FF7C8BB8163]
+	(No symbol) [0x00007FF7C8B8FB54]
+	(No symbol) [0x00007FF7C8B8F000]
+	(No symbol) [0x00007FF7C8B8F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1CDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF7C8CB9A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3E021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3A944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3AA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D32286+346374]
+	BaseThreadInitThunk [0x00007FFA1CEF7374+20]
+	RtlUserThreadStart [0x00007FFA1E93CC91+33]
+
+INFO:waitress:Serving on http://0.0.0.0:5000
+ERROR:app:Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 3967, in get_local_driver
+    driver = Edge(service=service, options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C8D9DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C90483B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F87696+1460486]
+	(No symbol) [0x00007FF7C8B876A9]
+	(No symbol) [0x00007FF7C8B8211A]
+	(No symbol) [0x00007FF7C8BC0E95]
+	(No symbol) [0x00007FF7C8BB8163]
+	(No symbol) [0x00007FF7C8B8FB54]
+	(No symbol) [0x00007FF7C8B8F000]
+	(No symbol) [0x00007FF7C8B8F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1CDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF7C8CB9A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3E021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3A944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3AA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D32286+346374]
+	BaseThreadInitThunk [0x00007FFA1CEF7374+20]
+	RtlUserThreadStart [0x00007FFA1E93CC91+33]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 77, in index
+    if login_if_needed(username, password):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 19, in login_if_needed
+    driver = get_driver()
+             ^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 14, in get_driver
+    driver = Driver(browser="edge", headless=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\plugins\driver_manager.py", line 793, in Driver
+    driver = browser_launcher.get_driver(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 2699, in get_driver
+    return get_local_driver(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 3996, in get_local_driver
+    driver = Edge(service=service, options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (chrome not reachable)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C8D9DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C90483B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F87696+1460486]
+	(No symbol) [0x00007FF7C8B876A9]
+	(No symbol) [0x00007FF7C8B8211A]
+	(No symbol) [0x00007FF7C8BC0E95]
+	(No symbol) [0x00007FF7C8BB8163]
+	(No symbol) [0x00007FF7C8B8FB54]
+	(No symbol) [0x00007FF7C8B8F000]
+	(No symbol) [0x00007FF7C8B8F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1CDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF7C8CB9A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3E021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3A944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3AA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D32286+346374]
+	BaseThreadInitThunk [0x00007FFA1CEF7374+20]
+	RtlUserThreadStart [0x00007FFA1E93CC91+33]
+
+INFO:waitress:Serving on http://0.0.0.0:5000
+ERROR:app:Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 3967, in get_local_driver
+    driver = Edge(service=service, options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C8D9DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C90483B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F87696+1460486]
+	(No symbol) [0x00007FF7C8B876A9]
+	(No symbol) [0x00007FF7C8B8211A]
+	(No symbol) [0x00007FF7C8BC0E95]
+	(No symbol) [0x00007FF7C8BB8163]
+	(No symbol) [0x00007FF7C8B8FB54]
+	(No symbol) [0x00007FF7C8B8F000]
+	(No symbol) [0x00007FF7C8B8F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1CDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF7C8CB9A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3E021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3A944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3AA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D32286+346374]
+	BaseThreadInitThunk [0x00007FFA1CEF7374+20]
+	RtlUserThreadStart [0x00007FFA1E93CC91+33]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 77, in index
+    if login_if_needed(username, password):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 19, in login_if_needed
+    driver = get_driver()
+             ^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 14, in get_driver
+    driver = Driver(browser="edge", headless=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\plugins\driver_manager.py", line 793, in Driver
+    driver = browser_launcher.get_driver(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 2699, in get_driver
+    return get_local_driver(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 3996, in get_local_driver
+    driver = Edge(service=service, options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (chrome not reachable)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C8D9DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C90483B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F87696+1460486]
+	(No symbol) [0x00007FF7C8B876A9]
+	(No symbol) [0x00007FF7C8B8211A]
+	(No symbol) [0x00007FF7C8BC0E95]
+	(No symbol) [0x00007FF7C8BB8163]
+	(No symbol) [0x00007FF7C8B8FB54]
+	(No symbol) [0x00007FF7C8B8F000]
+	(No symbol) [0x00007FF7C8B8F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1CDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF7C8CB9A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3E021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3A944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3AA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D32286+346374]
+	BaseThreadInitThunk [0x00007FFA1CEF7374+20]
+	RtlUserThreadStart [0x00007FFA1E93CC91+33]
+
+INFO:waitress:Serving on http://0.0.0.0:5000
+ERROR:app:Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 3967, in get_local_driver
+    driver = Edge(service=service, options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C8D9DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C90483B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F87696+1460486]
+	(No symbol) [0x00007FF7C8B876A9]
+	(No symbol) [0x00007FF7C8B8211A]
+	(No symbol) [0x00007FF7C8BC0E95]
+	(No symbol) [0x00007FF7C8BB8163]
+	(No symbol) [0x00007FF7C8B8FB54]
+	(No symbol) [0x00007FF7C8B8F000]
+	(No symbol) [0x00007FF7C8B8F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1CDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF7C8CB9A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3E021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3A944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3AA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D32286+346374]
+	BaseThreadInitThunk [0x00007FFA1CEF7374+20]
+	RtlUserThreadStart [0x00007FFA1E93CC91+33]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 77, in index
+    if login_if_needed(username, password):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 19, in login_if_needed
+    driver = get_driver()
+             ^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 14, in get_driver
+    driver = Driver(browser="edge", headless=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\plugins\driver_manager.py", line 793, in Driver
+    driver = browser_launcher.get_driver(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 2699, in get_driver
+    return get_local_driver(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 3996, in get_local_driver
+    driver = Edge(service=service, options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (chrome not reachable)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7C8D9DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C90483B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F87696+1460486]
+	(No symbol) [0x00007FF7C8B876A9]
+	(No symbol) [0x00007FF7C8B8211A]
+	(No symbol) [0x00007FF7C8BC0E95]
+	(No symbol) [0x00007FF7C8BB8163]
+	(No symbol) [0x00007FF7C8B8FB54]
+	(No symbol) [0x00007FF7C8B8F000]
+	(No symbol) [0x00007FF7C8B8F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1CDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF7C8CB9A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF7C8F1BA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3E021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3A944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D3AA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF7C8D32286+346374]
+	BaseThreadInitThunk [0x00007FFA1CEF7374+20]
+	RtlUserThreadStart [0x00007FFA1E93CC91+33]
+
+INFO:waitress:Serving on http://0.0.0.0:5000
+INFO:waitress:Serving on http://0.0.0.0:7523
+INFO:waitress:Serving on http://0.0.0.0:7523
+INFO:waitress:Serving on http://0.0.0.0:7523
+ERROR:app:Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 3967, in get_local_driver
+    driver = Edge(service=service, options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF75D22DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D4D83B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D417696+1460486]
+	(No symbol) [0x00007FF75D0176A9]
+	(No symbol) [0x00007FF75D01211A]
+	(No symbol) [0x00007FF75D050E95]
+	(No symbol) [0x00007FF75D048163]
+	(No symbol) [0x00007FF75D01FB54]
+	(No symbol) [0x00007FF75D01F000]
+	(No symbol) [0x00007FF75D01F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D3ACDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF75D149A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D3ABDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D3ABA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1CE021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1CA944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1CAA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1C2286+346374]
+	BaseThreadInitThunk [0x00007FFF877F7374+20]
+	RtlUserThreadStart [0x00007FFF8873CC91+33]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 77, in index
+    if login_if_needed(username, password):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 19, in login_if_needed
+    driver = get_driver()
+             ^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 14, in get_driver
+    driver = Driver(browser="edge", headless=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\plugins\driver_manager.py", line 793, in Driver
+    driver = browser_launcher.get_driver(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 2699, in get_driver
+    return get_local_driver(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 3996, in get_local_driver
+    driver = Edge(service=service, options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (chrome not reachable)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF75D22DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D4D83B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D417696+1460486]
+	(No symbol) [0x00007FF75D0176A9]
+	(No symbol) [0x00007FF75D01211A]
+	(No symbol) [0x00007FF75D050E95]
+	(No symbol) [0x00007FF75D048163]
+	(No symbol) [0x00007FF75D01FB54]
+	(No symbol) [0x00007FF75D01F000]
+	(No symbol) [0x00007FF75D01F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D3ACDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF75D149A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D3ABDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D3ABA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1CE021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1CA944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1CAA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1C2286+346374]
+	BaseThreadInitThunk [0x00007FFF877F7374+20]
+	RtlUserThreadStart [0x00007FFF8873CC91+33]
+
+INFO:waitress:Serving on http://0.0.0.0:7523
+INFO:waitress:Serving on http://0.0.0.0:7523
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 132.0 firefox
+INFO:WDM:Driver [C:\Windows\system32\config\systemprofile\.wdm\drivers\geckodriver\win64\v0.35.0\geckodriver.exe] found in cache
+INFO:waitress:Serving on http://0.0.0.0:7523
+ERROR:app:Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 3967, in get_local_driver
+    driver = Edge(service=service, options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF75D22DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D4D83B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D417696+1460486]
+	(No symbol) [0x00007FF75D0176A9]
+	(No symbol) [0x00007FF75D01211A]
+	(No symbol) [0x00007FF75D050E95]
+	(No symbol) [0x00007FF75D048163]
+	(No symbol) [0x00007FF75D01FB54]
+	(No symbol) [0x00007FF75D01F000]
+	(No symbol) [0x00007FF75D01F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D3ACDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF75D149A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D3ABDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D3ABA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1CE021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1CA944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1CAA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1C2286+346374]
+	BaseThreadInitThunk [0x00007FFF877F7374+20]
+	RtlUserThreadStart [0x00007FFF8873CC91+33]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 77, in index
+    if login_if_needed(username, password):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 19, in login_if_needed
+    driver = get_driver()
+             ^^^^^^^^^^^^
+  File "C:\Projeto Etiqueta Ag Transfusional\app.py", line 14, in get_driver
+    driver = Driver(browser="edge", headless=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\plugins\driver_manager.py", line 793, in Driver
+    driver = browser_launcher.get_driver(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 2699, in get_driver
+    return get_local_driver(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\seleniumbase\core\browser_launcher.py", line 3996, in get_local_driver
+    driver = Edge(service=service, options=edge_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\edge\webdriver.py", line 45, in __init__
+    super().__init__(
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+    super().__init__(command_executor=executor, options=options)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 238, in __init__
+    self.start_session(capabilities)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 325, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 380, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\igor.ims\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (chrome not reachable)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF75D22DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D4D83B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D417696+1460486]
+	(No symbol) [0x00007FF75D0176A9]
+	(No symbol) [0x00007FF75D01211A]
+	(No symbol) [0x00007FF75D050E95]
+	(No symbol) [0x00007FF75D048163]
+	(No symbol) [0x00007FF75D01FB54]
+	(No symbol) [0x00007FF75D01F000]
+	(No symbol) [0x00007FF75D01F741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D3ACDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF75D149A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D3ABDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF75D3ABA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1CE021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1CA944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1CAA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF75D1C2286+346374]
+	BaseThreadInitThunk [0x00007FFF877F7374+20]
+	RtlUserThreadStart [0x00007FFF8873CC91+33]
+
+INFO:waitress:Serving on http://0.0.0.0:7523
+INFO:waitress:Serving on http://0.0.0.0:7523
+
+Microsoft Edge Driver not found. Getting it now:
+
+*** edgedriver to download = 130.0.2849.68
+
+Downloading edgedriver_win64.zip from:
+https://msedgedriver.azureedge.net/130.0.2849.68/edgedriver_win64.zip ...
+Download Complete!
+
+Extracting ['Driver_Notes/', 'Driver_Notes/credits.html', 'Driver_Notes/EULA', 'Driver_Notes/LICENSE', 'msedgedriver.exe'] from edgedriver_win64.zip ...
+Unzip Complete!
+
+The file [msedgedriver.exe] was saved to:
+C:\Windows\Temp\_MEI55122\seleniumbase\drivers\msedgedriver.exe
+
+Making [msedgedriver.exe 130.0.2849.68] executable ...
+[msedgedriver.exe 130.0.2849.68] is now ready for use!
+
+ERROR:app:Exception on / [POST]
+Traceback (most recent call last):
+  File "seleniumbase\core\browser_launcher.py", line 3967, in get_local_driver
+  File "selenium\webdriver\edge\webdriver.py", line 45, in __init__
+  File "selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+  File "selenium\webdriver\remote\webdriver.py", line 238, in __init__
+  File "selenium\webdriver\remote\webdriver.py", line 325, in start_session
+  File "selenium\webdriver\remote\webdriver.py", line 380, in execute
+  File "selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF68AC0DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF68AEB83B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF68ADF7696+1460486]
+	(No symbol) [0x00007FF68A9F76A9]
+	(No symbol) [0x00007FF68A9F211A]
+	(No symbol) [0x00007FF68AA30E95]
+	(No symbol) [0x00007FF68AA28163]
+	(No symbol) [0x00007FF68A9FFB54]
+	(No symbol) [0x00007FF68A9FF000]
+	(No symbol) [0x00007FF68A9FF741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF68AD8CDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF68AB29A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF68AD8BDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF68AD8BA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF68ABAE021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF68ABAA944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF68ABAAA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF68ABA2286+346374]
+	BaseThreadInitThunk [0x00007FFDCA177374+20]
+	RtlUserThreadStart [0x00007FFDCAC9CC91+33]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "flask\app.py", line 1473, in wsgi_app
+  File "flask\app.py", line 882, in full_dispatch_request
+  File "flask\app.py", line 880, in full_dispatch_request
+  File "flask\app.py", line 865, in dispatch_request
+  File "app.py", line 77, in index
+  File "app.py", line 19, in login_if_needed
+  File "app.py", line 14, in get_driver
+  File "seleniumbase\plugins\driver_manager.py", line 793, in Driver
+  File "seleniumbase\core\browser_launcher.py", line 2699, in get_driver
+  File "seleniumbase\core\browser_launcher.py", line 3996, in get_local_driver
+  File "selenium\webdriver\edge\webdriver.py", line 45, in __init__
+  File "selenium\webdriver\chromium\webdriver.py", line 66, in __init__
+  File "selenium\webdriver\remote\webdriver.py", line 238, in __init__
+  File "selenium\webdriver\remote\webdriver.py", line 325, in start_session
+  File "selenium\webdriver\remote\webdriver.py", line 380, in execute
+  File "selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: Microsoft Edge failed to start: crashed.
+  (chrome not reachable)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x00007FF68AC0DC65+12853]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF68AEB83B4+2250276]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF68ADF7696+1460486]
+	(No symbol) [0x00007FF68A9F76A9]
+	(No symbol) [0x00007FF68A9F211A]
+	(No symbol) [0x00007FF68AA30E95]
+	(No symbol) [0x00007FF68AA28163]
+	(No symbol) [0x00007FF68A9FFB54]
+	(No symbol) [0x00007FF68A9FF000]
+	(No symbol) [0x00007FF68A9FF741]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF68AD8CDA4+1024020]
+	Microsoft::Applications::Events::EventProperty::~EventProperty [0x00007FF68AB29A04+57108]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF68AD8BDA3+1019923]
+	Microsoft::Applications::Events::EventProperty::empty [0x00007FF68AD8BA09+1019001]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF68ABAE021+394913]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF68ABAA944+380868]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF68ABAAA89+381193]
+	Microsoft::Applications::Events::ILogConfiguration::operator* [0x00007FF68ABA2286+346374]
+	BaseThreadInitThunk [0x00007FFDCA177374+20]
+	RtlUserThreadStart [0x00007FFDCAC9CC91+33]
+
