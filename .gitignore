@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Build artifacts (PyInstaller)
+build/
+dist/
+text/Output/
+
+# Logs
+*.log
+logs.txt
+Logs do Sistema.log
+
+# Arquivos de depuração/captura de tráfego (podem conter credenciais e dados de pacientes)
+trafego_capturado.json
+login_page.html
+login_response.html
+
+# Editor/IDE residue
+tempCodeRunnerFile.py
+.vscode/
+
+# Ambiente
+.env
+venv/
+.venv/

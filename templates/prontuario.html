@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETIQUETA AT - Consulta</title>
+    <style>
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            
+            z-index: 1000;
+            visibility: hidden; /* Inicialmente oculto */
+        }
+        #logout {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            
+            z-index: 1000;
+            visibility: hidden; /* Inicialmente oculto */
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: "Poppins", sans-serif!important;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        label {
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            font-family: "Poppins", sans-serif!important;
+            transition: all 0.5s ease;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .logout-button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+        .logout-button:hover {
+            background-color: #c9302c;
+        }
+        p {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="document.getElementById('prontuario').focus();">
+    
+    <!-- Tela de carregamento e logout -->
+    <div id="loading" style="visibility: hidden;">Gerando Etiqueta<span class="drop-container" id="drop-container-loading"></span></div>
+    <div id="logout" style="visibility: hidden;">Saindo<span class="drop-container" id="drop-container-logout"></span></div>
+
+    <div>
+        <h1>Consulta de Paciente</h1>
+        <form method="POST" onsubmit="showLoading()">
+            <label for="prontuario">Número do Prontuário:</label>
+            <input type="text" id="prontuario" name="prontuario" required autocomplete="off">
+            <button type="submit">Consultar</button>
+            {% if error %}
+                <p>{{ error }}</p>
+            {% endif %}
+        </form>
+        <!-- Botão de logout -->
+        <form action="{{ url_for('logout') }}" method="get" autocomplete="off" onsubmit="showLogout()">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+
+    <style>
+        /* Estilos da gota de sangue */
+        .drop-container {
+            display: inline-block;
+            position: relative;
+            width: 15px;
+            height: 20px;
+            margin-left: 5px;
+            bottom: 12px; /* Ajuste vertical */
+        }
+
+        .drop {
+            position: absolute;
+            width: 15px;
+            height: 25px;
+            animation: dropAnimation 800ms infinite;
+        }
+
+        /* Animação da queda da gota */
+        @keyframes dropAnimation {
+            0% { transform: translateY(0); opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateY(20px); opacity: 0; }
+        }
+    </style>
+
+    <script>
+        // Mostra a tela de carregamento ao enviar o formulário
+        function showLoading() {
+            document.getElementById('loading').style.visibility = 'visible';
+            startDropAnimation('drop-container-loading');
+        }
+
+        // Mostra a tela de logout ao clicar no botão de logout
+        function showLogout() {
+            document.getElementById('logout').style.visibility = 'visible';
+            startDropAnimation('drop-container-logout');
+        }
+
+        // Função para criar e animar gotas de sangue com ícone
+        function startDropAnimation(containerId) {
+            const dropContainer = document.getElementById(containerId);
+
+            // Limpa o contêiner para evitar duplicação de animações ao chamá-lo novamente
+            dropContainer.innerHTML = '';
+
+            // Adiciona uma gota a cada 1 segundo
+            setInterval(() => {
+                const drop = document.createElement('div');
+                drop.classList.add('drop');
+                
+                // Adiciona o SVG de gota de sangue ao elemento
+                drop.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="23" viewBox="0 0 24 24" fill="red">
+                        <path d="M12 2C11.6 2 11.3 2.2 11 2.4C10.6 2.7 5 8.4 5 13.5C5 17.6 8.4 21 12.5 21C16.6 21 20 17.6 20 13.5C20 8.4 14.4 2.7 14 2.4C13.7 2.2 13.4 2 13 2H12z"/>
+                    </svg>
+                `;
+                
+                // Remove a gota após a animação para manter o container limpo
+                drop.addEventListener('animationend', () => drop.remove());
+
+                dropContainer.appendChild(drop);
+            }, 800); // A cada 1 segundo
+        }
+    </script>
+
+</body>
+
+
+</html>

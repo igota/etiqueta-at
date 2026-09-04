@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETIQUETA AT</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            position: relative; /* Necessário para o posicionamento fixo */
+            height: 100vh; /* Garante que o body tenha altura total da janela */
+            zoom: 250%;
+              
+        }
+        .etiqueta {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 47mm;
+            height: 30mm;
+            font-size: 8px;
+            font-weight: 500;
+            padding-bottom: 5px;
+            /* Ajuste de padding para melhor uso do espaço */
+            border: 0.5px solid black;
+            box-shadow: 1px 1px 2px gray;
+
+            
+            background-color: white; /* Adiciona um fundo branco */
+            
+        }
+
+        .info{
+            
+            line-height: 0.95;
+            padding-left: 5px;
+            
+            
+        }
+        
+                        
+            
+        .hora{
+            padding-left:2px;
+            
+        }   
+        
+        
+
+        
+        .sexo{
+            padding-top: 10px;
+            padding-left: 30px;
+        }
+        
+
+        .placeholder {
+            font-style: italic;
+            color: #666;
+        }
+        .error {
+            color: red;
+        }
+        .btn-container {
+            position: fixed;
+            bottom: 10px; /* Margem inferior */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            
+        }
+        
+        .btn-imprimir {
+            background-color: #007BFF;
+            padding: 7px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 7px;
+            margin-top: 10px;
+            font-family: "Poppins", sans-serif!important;
+            transition: all 0.5s ease;
+        }
+        .btn-imprimir:hover {
+            background-color: #0056b3;
+        }
+        .btn-voltar {
+            background-color: #5cb85c;
+            padding: 7px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 7px;
+            margin-top: 10px;
+            font-family: "Poppins", sans-serif!important;
+            transition: all 0.5s ease;
+        }
+        .btn-voltar:hover {
+            background-color: #218838;
+        }
+        /* Oculta os botões durante a impressão */
+        @media print {
+            body{
+                zoom: 1;
+            }
+            .btn-container {
+                display: none; /* Esconde os botões */
+            }
+            .etiqueta{
+            border: none;
+            box-shadow:none;        }}
+    </style>
+   
+</head>
+<body>
+    
+    <div class="etiqueta">
+        <div class="info">
+            {% if info %}
+                {% set prontuario_split = info.prontuario.split('-') %}
+                <p class="paciente">{{ prontuario_split[1] if prontuario_split|length > 1 else 'Não especificado' }}</p>
+                <p class="prontuario"><strong>Pront.:</strong> {{ prontuario_split[0] }} </p>
+                <p><strong class="setor">Setor:</strong> {{ info.setor }}</p>
+                <p class="data-nascimento"><strong>DN:</strong> {{ info.data_nascimento }} <strong class="sexo">Sexo:</strong> {{ info.sexo }}</p>
+                <p><strong class="data">Coleta: </strong><span class="placeholder">____/____/____</span><strong class="hora">Hora:</strong><span class="placeholder">___________</span></p>
+
+                <p class="tecnico"><strong>Resp.:</strong> <span class="placeholder">______________________________</span></p>
+            {% else %}
+                <p class="error">Erro: Nenhuma informação disponível para o paciente.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <!-- Botão para imprimir a etiqueta -->
+        <button onclick="window.print()" class="btn-imprimir">Imprimir</button>
+        
+        <!-- Botão para voltar para a página de prontuário -->
+        <form action="{{ url_for('prontuario') }}" method="get" style="display: inline;">
+            <button type="submit" class="btn-voltar">Voltar para Prontuário</button>
+        </form>
+    </div>
+</body>
+</html>
