@@ -63,10 +63,10 @@ Inicia duas threads daemon — uma para o servidor HTTP Waitress e outra para o 
 
 ### Sistema Alvo
 
-O scraper aponta para um endereço de rede interna. A URL pública (`https://sistemasnti.isgh.org.br/pacientehrn/login.jsf`) está comentada em `app.py:31`. Para trocar de ambiente, basta alternar esse comentário.
+O endereço do sistema hospitalar vem da variável de ambiente `HOSPITAL_BASE_URL` (obrigatória — o app falha na inicialização se não estiver definida). Veja `.env.example` na raiz do projeto.
 
 ## Restrições Importantes
 
 - O driver Selenium usa **seletores XPath posicionais** (`tr[1]/td[7]/a[2]/img`) vinculados à estrutura da página JSF do hospital — se o hospital atualizar o sistema, esses seletores irão quebrar.
 - O caminho do ícone na bandeja em `run.py:17` está **hardcoded** para o caminho antigo de instalação `C:\Projeto Etiqueta Ag Transfusional\...` — deve ser atualizado se o projeto for movido.
-- A `app.secret_key` em `app.py:7` é uma string estática em texto simples; as credenciais do usuário ficam armazenadas na sessão Flask.
+- A `app.secret_key` vem de `FLASK_SECRET_KEY` (com um valor padrão embutido como fallback se a variável não estiver definida); as credenciais do usuário ficam armazenadas na sessão Flask.

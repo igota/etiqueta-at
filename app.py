@@ -17,7 +17,13 @@ logging.basicConfig(
 log = logging.getLogger("etiquetaAT")
 log.setLevel(logging.DEBUG)
 
-BASE_URL = "http://10.2.2.8:8080/pacientehrn"
+BASE_URL = os.environ.get("HOSPITAL_BASE_URL")
+if not BASE_URL:
+    raise RuntimeError(
+        "Variável de ambiente HOSPITAL_BASE_URL não definida. "
+        "Configure-a com a URL base do sistema do hospital "
+        "(ex.: http://10.2.2.8:8080/pacientehrn)."
+    )
 _UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
 
 http_session = None

@@ -54,8 +54,16 @@ O executável vai para `dist/run.exe`. O script `text/script instalado inno setu
 
 ## Configuração
 
+O app é configurado por variáveis de ambiente. Copie `.env.example` para `.env` e preencha com os valores reais do seu ambiente (o `.env` já está no `.gitignore` e nunca deve ser commitado).
+
+- `HOSPITAL_BASE_URL` (**obrigatória**): URL base do sistema do hospital (ex.: `http://10.2.2.8:8080/pacientehrn`). O app não sobe sem ela — falha logo na inicialização com um erro claro.
 - `FLASK_SECRET_KEY` (opcional): chave de sessão do Flask. Se não definida, usa um valor padrão embutido no código — recomendado configurar em produção.
-- O endereço do sistema hospitalar está fixo em `app.py` (`BASE_URL`), apontando para a rede interna do hospital. Há uma URL pública alternativa comentada no mesmo trecho.
+
+Ao rodar `python app.py`/`python run.py` direto no terminal, defina as variáveis na sessão do shell antes de executar. Quando instalado como serviço Windows via NSSM, configure com:
+
+```bat
+tools\nssm.exe set EtiquetaAT AppEnvironmentExtra HOSPITAL_BASE_URL=http://10.2.2.8:8080/pacientehrn FLASK_SECRET_KEY=sua-chave-aqui
+```
 
 ## Avisos importantes
 
