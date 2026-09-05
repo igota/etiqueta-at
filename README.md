@@ -33,7 +33,7 @@ O app sobe em `http://localhost:5000`.
 python run.py
 ```
 
-Sobe o servidor com Waitress e um ícone na bandeja do sistema, e é o modo usado quando instalado como serviço Windows.
+Sobe o servidor com Waitress e um ícone na bandeja do sistema.
 
 ## Gerando o executável
 
@@ -41,29 +41,22 @@ Sobe o servidor com Waitress e um ícone na bandeja do sistema, e é o modo usad
 pyinstaller run.spec
 ```
 
-O executável vai para `dist/run.exe`. O script `text/script instalado inno setup.iss` empacota esse `.exe` em um instalador e o registra como serviço Windows via NSSM (`tools/nssm.exe`).
+O executável vai para `dist/run.exe`. Não há instalador nem registro como serviço Windows — basta copiar `run.exe` (junto com o `.env`, veja abaixo) para onde for rodar e executá-lo diretamente. Para iniciar junto com o Windows, crie um atalho na pasta Inicializar (`shell:startup`).
 
 ## Estrutura
 
 - **`app.py`** — lógica principal: autenticação, navegação e extração de dados do sistema hospitalar, e as rotas Flask (`/`, `/prontuario`, `/logout`).
 - **`run.py`** — wrapper para Windows: inicia o servidor Waitress e o ícone da bandeja em threads separadas.
 - **`templates/`** — telas de login, busca de prontuário e a etiqueta imprimível.
-- **`static/`** — logos e ícones usados na interface e no instalador.
-- **`text/`** — dependências (`requirements.txt`) e script de instalação (Inno Setup).
-- **`tools/nssm.exe`** — utilitário usado pelo instalador para registrar o app como serviço Windows.
+- **`static/`** — logos e ícones usados na interface e no executável.
+- **`text/`** — dependências (`requirements.txt`).
 
 ## Configuração
 
-O app é configurado por variáveis de ambiente. Copie `.env.example` para `.env` e preencha com os valores reais do seu ambiente (o `.env` já está no `.gitignore` e nunca deve ser commitado).
+O app é configurado por variáveis de ambiente, carregadas de um arquivo `.env` colocado na mesma pasta do `run.exe` (build) ou do `app.py` (desenvolvimento). Copie `.env.example` para `.env` e preencha com os valores reais do seu ambiente — o `.env` já está no `.gitignore` e nunca deve ser commitado.
 
 - `HOSPITAL_BASE_URL` (**obrigatória**): URL base do sistema do hospital (ex.: `http://10.2.2.8:8080/pacientehrn`). O app não sobe sem ela — falha logo na inicialização com um erro claro.
 - `FLASK_SECRET_KEY` (opcional): chave de sessão do Flask. Se não definida, usa um valor padrão embutido no código — recomendado configurar em produção.
-
-Ao rodar `python app.py`/`python run.py` direto no terminal, defina as variáveis na sessão do shell antes de executar. Quando instalado como serviço Windows via NSSM, configure com:
-
-```bat
-tools\nssm.exe set EtiquetaAT AppEnvironmentExtra HOSPITAL_BASE_URL=http://10.2.2.8:8080/pacientehrn FLASK_SECRET_KEY=sua-chave-aqui
-```
 
 ## Avisos importantes
 

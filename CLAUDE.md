@@ -4,7 +4,7 @@ Este arquivo fornece orientações ao Claude Code (claude.ai/code) ao trabalhar 
 
 ## O Que Este Projeto Faz
 
-**Etiqueta AT** (Agência Transfusional) é um aplicativo desktop para Windows que gera etiquetas de pacientes do banco de sangue para os hospitais ISGH/HRN. Ele automatiza o login e a raspagem de dados do sistema interno do hospital (`http://10.2.2.8:8080/pacientehrn/login.jsf`) e renderiza uma etiqueta imprimível de 47×30mm.
+**Etiqueta AT** (Agência Transfusional) é um aplicativo desktop para Windows que gera etiquetas de pacientes do banco de sangue para os hospitais ISGH/HRN. Ele automatiza o login e a raspagem de dados do sistema interno do hospital (endereço configurado via `HOSPITAL_BASE_URL`, ex.: `http://10.2.2.8:8080/pacientehrn`) reproduzindo as requisições HTTP/AJAX do sistema JSF, e renderiza uma etiqueta imprimível de 47×30mm.
 
 ## Executando o App
 
@@ -25,7 +25,7 @@ O app roda em `http://localhost:5000`. Os logs são gravados em `Logs do Sistema
 pyinstaller run.spec
 ```
 
-O resultado vai para `dist/run.exe`. O script do Inno Setup em `text\script instalado inno setup.iss` empacota o `dist\run.exe` em um instalador e o registra como serviço Windows via NSSM (`tools\nssm.exe`).
+O resultado vai para `dist/run.exe`. Não há instalador nem registro como serviço Windows — o `.exe` é executado diretamente (com um `.env` na mesma pasta), do mesmo jeito que o projeto irmão Mapa CCG.
 
 ## Instalando Dependências
 
@@ -33,7 +33,7 @@ O resultado vai para `dist/run.exe`. O script do Inno Setup em `text\script inst
 pip install -r text/requirements.txt
 ```
 
-Pacotes principais: `flask`, `seleniumbase`, `waitress`, `pystray`, `Pillow`.
+Pacotes principais: `flask`, `requests`, `beautifulsoup4`, `python-dotenv`, `waitress`, `pystray`, `Pillow`.
 
 ## Arquitetura
 
@@ -42,14 +42,18 @@ Pacotes principais: `flask`, `seleniumbase`, `waitress`, `pystray`, `Pillow`.
 ```
 run.py  →  pystray (ícone na bandeja, thread daemon)
         →  waitress.serve(app)  →  app.py (rotas Flask)
+                                       │
+                                       ▼
+                         requests + BeautifulSoup → sistema JSF do hospital
 ```
 
 ### `app.py` — Lógica Principal
 
-- **`driver` global**: Um único `seleniumbase.Driver` (Chrome headless) é reutilizado em todas as requisições. É criado na primeira chamada e destruído apenas no logout.
-- **`login_if_needed()`**: Abre a página de login JSF do hospital, envia as credenciais e verifica o redirecionamento para `paginaPrincipal.jsf`.
-- **`get_patient_info()`**: Navega pela interface do hospital usando seletores XPath para localizar o prontuário, trata um modal de obstetrícia e extrai nome, setor, data de nascimento e sexo.
-- **Rotas**: `GET/POST /` (login), `GET/POST /prontuario` (busca de paciente), `GET /logout` (encerra o Chrome, limpa a sessão).
+- **`http_session` global**: uma única `requests.Session` reutilizada em todas as requisições, reproduzindo as chamadas HTTP/AJAX que o navegador faria contra o RichFaces/JSF do hospital. Criada na primeira chamada e fechada apenas no logout.
+- **`login_if_needed()`**: faz `POST` no `login.jsf` do hospital com as credenciais e verifica o redirecionamento para `paginaPrincipal.jsf`.
+- **`get_patient_info()` / `_navegar_e_buscar()`**: reproduz a navegação AJAX até a busca por prontuário, trata o caso de vínculo com prontuário de mãe (obstetrícia) e delega a `_parse_patient_data()` a extração de nome, setor, data de nascimento e sexo do bloco `viewBloco` (via BeautifulSoup).
+- **Rotas**: `GET/POST /` (login), `GET/POST /prontuario` (busca de paciente), `GET /logout` (encerra a sessão HTTP, limpa a sessão Flask).
+- `.env` é carregado no início do módulo (via `python-dotenv`) a partir da pasta do `.exe` (build) ou do `app.py` (dev) — ver `.env.example`.
 
 ### `run.py` — Wrapper Windows
 
@@ -67,6 +71,6 @@ O endereço do sistema hospitalar vem da variável de ambiente `HOSPITAL_BASE_UR
 
 ## Restrições Importantes
 
-- O driver Selenium usa **seletores XPath posicionais** (`tr[1]/td[7]/a[2]/img`) vinculados à estrutura da página JSF do hospital — se o hospital atualizar o sistema, esses seletores irão quebrar.
+- A extração usa **regex e parsing posicional** (ex.: IDs `formMedicos:oTableNovo:0:...`, estrutura de `<div>`s dentro de `viewBloco`) vinculados à estrutura da página JSF do hospital — se o hospital atualizar o sistema, essa extração irá quebrar.
 - O caminho do ícone na bandeja em `run.py:17` está **hardcoded** para o caminho antigo de instalação `C:\Projeto Etiqueta Ag Transfusional\...` — deve ser atualizado se o projeto for movido.
 - A `app.secret_key` vem de `FLASK_SECRET_KEY` (com um valor padrão embutido como fallback se a variável não estiver definida); as credenciais do usuário ficam armazenadas na sessão Flask.

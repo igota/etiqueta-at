@@ -2,8 +2,14 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import logging
 import os
 import re
+import sys
 import requests
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+
+# Pasta onde está o .exe (build) ou o app.py (dev) — não depende do diretório de trabalho atual
+_base_dir = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(os.path.abspath(__file__))
+load_dotenv(os.path.join(_base_dir, '.env'))
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "chave_secreta_para_sessao")
