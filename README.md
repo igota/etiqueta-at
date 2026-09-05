@@ -57,7 +57,7 @@ O app é configurado por variáveis de ambiente, carregadas de um arquivo `.env`
 
 | Variável | Obrigatória | Descrição |
 |---|---|---|
-| `HOSPITAL_BASE_URL` | Sim | URL base do sistema do hospital (ex.: `http://10.2.2.8:8080/pacientehrn`). O app não sobe sem ela — falha logo na inicialização com um erro claro. |
+| `HOSPITAL_BASE_URL` | Sim | URL base do sistema do hospital (ex.: `http://<host>:<porta>/pacientehrn`). O app não sobe sem ela — falha logo na inicialização com um erro claro. |
 | `FLASK_SECRET_KEY` | Não | Chave de sessão do Flask. Se não definida, usa um valor padrão embutido no código — recomendado configurar em produção. |
 | `HOST` | Não | Endereço em que o Waitress escuta (padrão `0.0.0.0`). |
 | `PORT` | Não | Porta do servidor (padrão `5000`). |

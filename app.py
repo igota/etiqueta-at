@@ -3,6 +3,7 @@ import logging
 import os
 import re
 import sys
+from urllib.parse import urlsplit
 import requests
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
@@ -30,6 +31,7 @@ if not BASE_URL:
         "Configure-a com a URL base do sistema do hospital "
         "(ex.: http://10.2.2.8:8080/pacientehrn)."
     )
+_HOST_HEADER = urlsplit(BASE_URL).netloc
 _UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
 
 http_session = None
@@ -69,7 +71,7 @@ def login_if_needed(username, password):
                 "login": username,
                 "xyb-ac": password,
                 "formulario:botaoLogin": "confirmar",
-                "formulario:host": "10.2.2.8:8080",
+                "formulario:host": _HOST_HEADER,
                 "javax.faces.ViewState": "j_id1",
             },
             allow_redirects=True,

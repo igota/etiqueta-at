@@ -4,7 +4,7 @@ Este arquivo fornece orientações ao Claude Code (claude.ai/code) ao trabalhar 
 
 ## O Que Este Projeto Faz
 
-**Etiqueta AT** (Agência Transfusional) é um aplicativo desktop para Windows que gera etiquetas de pacientes do banco de sangue para os hospitais ISGH/HRN. Ele automatiza o login e a raspagem de dados do sistema interno do hospital (endereço configurado via `HOSPITAL_BASE_URL`, ex.: `http://10.2.2.8:8080/pacientehrn`) reproduzindo as requisições HTTP/AJAX do sistema JSF, e renderiza uma etiqueta imprimível de 47×30mm.
+**Etiqueta AT** (Agência Transfusional) é um aplicativo desktop para Windows que gera etiquetas de pacientes do banco de sangue para os hospitais ISGH/HRN. Ele automatiza o login e a raspagem de dados do sistema interno do hospital (endereço configurado via `HOSPITAL_BASE_URL`, ex.: `http://<host>:<porta>/pacientehrn`) reproduzindo as requisições HTTP/AJAX do sistema JSF, e renderiza uma etiqueta imprimível de 47×30mm.
 
 ## Executando o App
 
