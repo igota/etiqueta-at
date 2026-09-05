@@ -61,7 +61,7 @@ O app é configurado por variáveis de ambiente, carregadas de um arquivo `.env`
 | `FLASK_SECRET_KEY` | Não | Chave de sessão do Flask. Se não definida, usa um valor padrão embutido no código — recomendado configurar em produção. |
 | `HOST` | Não | Endereço em que o Waitress escuta (padrão `0.0.0.0`). |
 | `PORT` | Não | Porta do servidor (padrão `5000`). |
-| `THREADS` | Não | Threads do Waitress (padrão `100`). |
+| `THREADS` | Não | Threads do Waitress (padrão `10`). |
 | `ICON_PATH` | Não | Caminho do ícone da bandeja. Se omitida, usa `static/icone_etiquetaAT.jpg` na mesma pasta do `run.exe`/`run.py`. |
 
 ## Avisos importantes

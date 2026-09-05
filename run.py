@@ -20,7 +20,7 @@ _base_dir = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) els
 # Configurações do servidor (lidas do .env, com fallback para os valores padrão)
 HOST = os.environ.get('HOST', '0.0.0.0')
 PORT = int(os.environ.get('PORT', 5000))
-THREADS = int(os.environ.get('THREADS', 100))
+THREADS = int(os.environ.get('THREADS', 10))
 
 # Cria um ícone a partir de uma imagem
 def create_image():

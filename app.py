@@ -3,6 +3,8 @@ import logging
 import os
 import re
 import sys
+import threading
+import uuid
 from urllib.parse import urlsplit
 import requests
 from bs4 import BeautifulSoup
@@ -34,15 +36,36 @@ if not BASE_URL:
 _HOST_HEADER = urlsplit(BASE_URL).netloc
 _UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
 
-http_session = None
+# Uma requests.Session por usuário (chave = id gerado por sessão Flask), não uma
+# global — evita que requisições concorrentes de usuários diferentes se
+# misturem (login/cookies de um sobrescrevendo a sessão HTTP do outro).
+_http_sessions = {}
+_http_sessions_lock = threading.Lock()
 
 
 def _get_http_session():
-    global http_session
-    if http_session is None:
-        http_session = requests.Session()
-        http_session.headers["User-Agent"] = _UA
-    return http_session
+    session_id = session.get("http_session_id")
+    if not session_id:
+        session_id = uuid.uuid4().hex
+        session["http_session_id"] = session_id
+
+    with _http_sessions_lock:
+        sess = _http_sessions.get(session_id)
+        if sess is None:
+            sess = requests.Session()
+            sess.headers["User-Agent"] = _UA
+            _http_sessions[session_id] = sess
+        return sess
+
+
+def _close_http_session():
+    session_id = session.pop("http_session_id", None)
+    if not session_id:
+        return
+    with _http_sessions_lock:
+        sess = _http_sessions.pop(session_id, None)
+    if sess:
+        sess.close()
 
 
 def _ajax_post(path, data):
@@ -246,10 +269,7 @@ def prontuario():
 
 @app.route("/logout")
 def logout():
-    global http_session
+    _close_http_session()
     session.clear()
-    if http_session:
-        http_session.close()
-        http_session = None
     log.info("Logout Realizado pelo Usuario")
     return redirect(url_for("index"))
