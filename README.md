@@ -55,12 +55,17 @@ O executável vai para `dist/run.exe`. Não há instalador nem registro como ser
 
 O app é configurado por variáveis de ambiente, carregadas de um arquivo `.env` colocado na mesma pasta do `run.exe` (build) ou do `app.py` (desenvolvimento). Copie `.env.example` para `.env` e preencha com os valores reais do seu ambiente — o `.env` já está no `.gitignore` e nunca deve ser commitado.
 
-- `HOSPITAL_BASE_URL` (**obrigatória**): URL base do sistema do hospital (ex.: `http://10.2.2.8:8080/pacientehrn`). O app não sobe sem ela — falha logo na inicialização com um erro claro.
-- `FLASK_SECRET_KEY` (opcional): chave de sessão do Flask. Se não definida, usa um valor padrão embutido no código — recomendado configurar em produção.
+| Variável | Obrigatória | Descrição |
+|---|---|---|
+| `HOSPITAL_BASE_URL` | Sim | URL base do sistema do hospital (ex.: `http://10.2.2.8:8080/pacientehrn`). O app não sobe sem ela — falha logo na inicialização com um erro claro. |
+| `FLASK_SECRET_KEY` | Não | Chave de sessão do Flask. Se não definida, usa um valor padrão embutido no código — recomendado configurar em produção. |
+| `HOST` | Não | Endereço em que o Waitress escuta (padrão `0.0.0.0`). |
+| `PORT` | Não | Porta do servidor (padrão `5000`). |
+| `THREADS` | Não | Threads do Waitress (padrão `100`). |
+| `ICON_PATH` | Não | Caminho do ícone da bandeja. Se omitida, usa `static/icone_etiquetaAT.jpg` na mesma pasta do `run.exe`/`run.py`. |
 
 ## Avisos importantes
 
 - Este projeto depende de **seletores e estrutura de página específicos** do sistema JSF do hospital — qualquer atualização desse sistema pode quebrar a extração de dados.
-- O caminho do ícone na bandeja em `run.py` está fixo para `C:\Projeto Etiqueta Ag Transfusional\...`; ajuste se o local de instalação mudar.
 - As credenciais informadas no login ficam guardadas na sessão Flask durante o uso do app — não são persistidas em disco.
 - Repositório privado: lida com dados de pacientes e credenciais de acesso a um sistema hospitalar interno. Não versione arquivos de log, capturas de tráfego (`trafego_capturado.json`) ou páginas HTML de depuração — já cobertos pelo `.gitignore`.

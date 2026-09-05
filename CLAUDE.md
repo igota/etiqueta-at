@@ -57,7 +57,7 @@ run.py  →  pystray (ícone na bandeja, thread daemon)
 
 ### `run.py` — Wrapper Windows
 
-Inicia duas threads daemon — uma para o servidor HTTP Waitress e outra para o ícone pystray. O caminho do ícone está fixo em `C:\Projeto Etiqueta Ag Transfusional\static\icone_etiquetaAT.jpg`; atualize se o caminho de instalação mudar.
+Inicia duas threads daemon — uma para o servidor HTTP Waitress e outra para o ícone pystray. `HOST`, `PORT`, `THREADS` e `ICON_PATH` vêm do `.env` (ver `.env.example`); o ícone padrão é resolvido em `static/icone_etiquetaAT.jpg` relativo à pasta do `.exe`/script, não mais um caminho fixo.
 
 ### Templates
 
@@ -72,5 +72,4 @@ O endereço do sistema hospitalar vem da variável de ambiente `HOSPITAL_BASE_UR
 ## Restrições Importantes
 
 - A extração usa **regex e parsing posicional** (ex.: IDs `formMedicos:oTableNovo:0:...`, estrutura de `<div>`s dentro de `viewBloco`) vinculados à estrutura da página JSF do hospital — se o hospital atualizar o sistema, essa extração irá quebrar.
-- O caminho do ícone na bandeja em `run.py:17` está **hardcoded** para o caminho antigo de instalação `C:\Projeto Etiqueta Ag Transfusional\...` — deve ser atualizado se o projeto for movido.
 - A `app.secret_key` vem de `FLASK_SECRET_KEY` (com um valor padrão embutido como fallback se a variável não estiver definida); as credenciais do usuário ficam armazenadas na sessão Flask.

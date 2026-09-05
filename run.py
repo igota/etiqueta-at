@@ -14,20 +14,24 @@ import webbrowser
 # Variável global para controle do servidor
 server_running = True
 
-# Configurações do servidor
-HOST = '0.0.0.0'
-PORT = 5010  # Porta do seu app.py
-THREADS = 100
+# Pasta onde está o .exe (build) ou o run.py (dev) — usada para localizar o ícone padrão
+_base_dir = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(os.path.abspath(__file__))
+
+# Configurações do servidor (lidas do .env, com fallback para os valores padrão)
+HOST = os.environ.get('HOST', '0.0.0.0')
+PORT = int(os.environ.get('PORT', 5000))
+THREADS = int(os.environ.get('THREADS', 100))
 
 # Cria um ícone a partir de uma imagem
 def create_image():
     # Tenta carregar a logo do sistema de etiqueta AT
     image_paths = [
-        "C:\\Projeto Etiqueta Ag Transfusional\\static\\icone_etiquetaAT.jpg",
-        "C:\\Projeto Etiqueta Ag Transfusional\\static\\icone.ico",
-        "C:\\Projeto Etiqueta Ag Transfusional\\static\\logo.png"
+        p for p in [
+            os.environ.get('ICON_PATH'),
+            os.path.join(_base_dir, 'static', 'icone_etiquetaAT.jpg'),
+        ] if p
     ]
-    
+
     for path in image_paths:
         if os.path.exists(path):
             try:
