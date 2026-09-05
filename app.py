@@ -83,10 +83,31 @@ def _extract_ajax_html(response_text):
     return "\n".join(parts) if parts else response_text
 
 
+def _extract_viewstate(text, default=None):
+    """Extrai o valor atual do javax.faces.ViewState de uma página HTML ou de
+    uma resposta AJAX do RichFaces. Cai no `default` se não encontrar, para
+    não quebrar o fluxo caso o formato da resposta mude."""
+    match = re.search(
+        r'<update[^>]*id="javax\.faces\.ViewState"[^>]*>\s*<!\[CDATA\[(.*?)\]\]>',
+        text, re.DOTALL,
+    )
+    if match:
+        return match.group(1)
+
+    input_match = re.search(r'<input[^>]*name="javax\.faces\.ViewState"[^>]*>', text)
+    if input_match:
+        value_match = re.search(r'value="([^"]*)"', input_match.group(0))
+        if value_match:
+            return value_match.group(1)
+
+    return default
+
+
 def login_if_needed(username, password):
     sess = _get_http_session()
     try:
-        sess.get(f"{BASE_URL}/login.jsf")
+        resp_login_page = sess.get(f"{BASE_URL}/login.jsf")
+        viewstate = _extract_viewstate(resp_login_page.text, default="j_id1")
         resp = sess.post(
             f"{BASE_URL}/login.jsf",
             data={
@@ -95,7 +116,7 @@ def login_if_needed(username, password):
                 "xyb-ac": password,
                 "formulario:botaoLogin": "confirmar",
                 "formulario:host": _HOST_HEADER,
-                "javax.faces.ViewState": "j_id1",
+                "javax.faces.ViewState": viewstate,
             },
             allow_redirects=True,
         )
@@ -151,22 +172,23 @@ def _parse_patient_data(ajax_text):
         return None
 
 
-def _navegar_e_buscar(sess, prontuario):
+def _navegar_e_buscar(sess, prontuario, viewstate_menu):
     """Navega ao menu, carrega a busca e retorna a resposta AJAX da pesquisa."""
     _ajax_post("paginaPrincipal.jsf", {
         "AJAXREQUEST": "_viewRoot",
         "formCabecalho": "formCabecalho",
-        "javax.faces.ViewState": "j_id5",
+        "javax.faces.ViewState": viewstate_menu,
         "formCabecalho:j_id54": "formCabecalho:j_id54",
     })
-    sess.get(f"{BASE_URL}/cs_pep_sem_status.jsf")
+    resp_busca_page = sess.get(f"{BASE_URL}/cs_pep_sem_status.jsf")
+    viewstate_busca = _extract_viewstate(resp_busca_page.text, default="j_id6")
     return _ajax_post("cs_pep_sem_status.jsf", {
         "AJAXREQUEST": "_viewRoot",
         "formMedicos": "formMedicos",
         "formMedicos:selClinica": "0",
         "formMedicos:selEnfermaria": "0",
         "formMedicos:iptProntuario": prontuario,
-        "javax.faces.ViewState": "j_id6",
+        "javax.faces.ViewState": viewstate_busca,
         "formMedicos:btnPesquisa": "formMedicos:btnPesquisa",
     })
 
@@ -181,8 +203,10 @@ def get_patient_info(prontuario, username, password):
             if "login.jsf" in check.url:
                 if not login_if_needed(username, password):
                     return None
+                check = sess.get(f"{BASE_URL}/paginaPrincipal.jsf", allow_redirects=True)
 
-            resp = _navegar_e_buscar(sess, prontuario)
+            viewstate = _extract_viewstate(check.text, default="j_id5")
+            resp = _navegar_e_buscar(sess, prontuario, viewstate)
 
             btn_id = _find_select_button(resp.text)
             if not btn_id:
@@ -193,13 +217,14 @@ def get_patient_info(prontuario, username, password):
                 return None
 
             # Seleciona o primeiro resultado
+            viewstate = _extract_viewstate(resp.text, default="j_id6")
             resp = _ajax_post("cs_pep_sem_status.jsf", {
                 "AJAXREQUEST": "_viewRoot",
                 "formMedicos": "formMedicos",
                 "formMedicos:selClinica": "0",
                 "formMedicos:selEnfermaria": "0",
                 "formMedicos:iptProntuario": prontuario,
-                "javax.faces.ViewState": "j_id6",
+                "javax.faces.ViewState": viewstate,
                 btn_id: btn_id,
                 "ajaxSingle": btn_id,
             })
@@ -207,10 +232,11 @@ def get_patient_info(prontuario, username, password):
             # Trata modal de obstetrícia, se presente
             if "formObstetricia:btnProntMae" in resp.text:
                 log.info("Paciente Mãe Encontrado")
+                viewstate = _extract_viewstate(resp.text, default="j_id6")
                 resp = _ajax_post("cs_pep_sem_status.jsf", {
                     "AJAXREQUEST": "_viewRoot",
                     "formObstetricia": "formObstetricia",
-                    "javax.faces.ViewState": "j_id6",
+                    "javax.faces.ViewState": viewstate,
                     "formObstetricia:btnProntMae": "formObstetricia:btnProntMae",
                 })
             else:
